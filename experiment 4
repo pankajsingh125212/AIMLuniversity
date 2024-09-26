@@ -1,0 +1,30 @@
+import pandas as pd
+
+df = pd.read_csv('data.csv')  # replace with your dataset file
+
+print("Dataset Details:")
+print("----------------")
+
+print(f"Number of rows: {df.shape[0]}")
+print(f"Number of columns: {df.shape[1]}")
+
+print("\nFirst five rows:")
+print(df.head())
+
+print(f"\nSize of the dataset: {df.memory_usage(index=True).sum()} bytes")
+
+print(f"\nNumber of missing values: {df.isnull().sum().sum()}")
+
+numerical_cols = df.select_dtypes(include=['int64', 'float64']).columns
+print("\nNumerical Columns:")
+for col in numerical_cols:
+    print(f"Column: {col}")
+    print(f"Sum: {df[col].sum()}")
+    print(f"Average: {df[col].mean()}")
+    print(f"Min: {df[col].min()}")
+    print(f"Max: {df[col].max()}")
+    print()
+
+df.to_csv('exported_data.csv', index=False)
+
+print("\nDataset exported to exported_data.csv")
