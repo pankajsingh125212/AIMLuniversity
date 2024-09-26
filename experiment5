@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv('your_data.csv')  # replace with your dataset file
+df = pd.read_csv('your_dataset.csv')  # replace with your dataset file
 print("Dataset Details:")
 print("----------------")
 print(f"Number of rows: {df.shape[0]}")
