@@ -1,0 +1,28 @@
+import pandas as pd
+df = pd.read_csv('your_data.csv')  # replace with your dataset file
+print("Dataset Details:")
+print("----------------")
+print(f"Number of rows: {df.shape[0]}")
+print(f"Number of columns: {df.shape[1]}")
+print("\nFirst five rows:")
+print(df.head())
+print(f"\nSize of the dataset: {df.memory_usage(index=True).sum()} bytes")
+print(f"\nNumber of missing values: {df.isnull().sum().sum()}")
+numerical_cols = df.select_dtypes(include=['int64', 'float64']).columns
+print("\nNumerical Columns:")
+for col in numerical_cols:
+    print(f"Column: {col}")
+    print(f"Sum: {df[col].sum()}")
+    print(f"Average: {df[col].mean()}")
+    print(f"Min: {df[col].min()}")
+    print(f"Max: {df[col].max()}")
+    print()
+print("\nData Types:")
+print(df.dtypes)
+print("\nUnique Values:")
+for col in df.columns:
+    print(f"Column: {col}")
+    print(f"Unique values: {df[col].nunique()}")
+    print()
+print("\nCorrelation Matrix:")
+print(df.corr())
