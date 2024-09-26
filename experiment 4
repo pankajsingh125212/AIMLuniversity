@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('data.csv')  # replace with your dataset file
+df = pd.read_csv('dataset.csv')  # replace with your dataset file
 
 print("Dataset Details:")
 print("----------------")
@@ -25,6 +25,6 @@ for col in numerical_cols:
     print(f"Max: {df[col].max()}")
     print()
 
-df.to_csv('exported_data.csv', index=False)
+df.to_csv('exported_dataset.csv', index=False)
 
-print("\nDataset exported to exported_data.csv")
+print("\nDataset exported to exported_dataset.csv")
